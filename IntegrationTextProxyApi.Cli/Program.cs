@@ -6,6 +6,7 @@ using IntegrationTextProxyApi.Cli.Output;
 using IntegrationTextProxyApi.Cli.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Polly;
 using Refit;
 
 namespace IntegrationTextProxyApi.Cli
@@ -48,6 +49,12 @@ namespace IntegrationTextProxyApi.Cli
             services.AddValidatorsFromAssemblyContaining<Program>();
 
             services.AddRefitClient<ICustomerApi>()
+                .AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(new[]
+                {
+                    TimeSpan.FromSeconds(1),
+                    TimeSpan.FromSeconds(5),
+                    TimeSpan.FromSeconds(10),
+                }))
                 .ConfigureHttpClient(client =>
                 {
                     client.BaseAddress = new Uri(configuration["CustomerApi:BaseAddress"]);
