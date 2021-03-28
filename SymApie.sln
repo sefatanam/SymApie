@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{49599BC7-4403-4F95-BCF3-686E3EFA46A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7E5EFAFA-517D-4822-B4D2-1A1947097DC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyApi", "ProxyApi\ProxyApi.csproj", "{1261A48B-EDC8-454E-8589-10530629135D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTextProxyApi.Cli", "IntegrationTextProxyApi.Cli\IntegrationTextProxyApi.Cli.csproj", "{CD3D436D-43C4-4FCE-B509-BD03AE49DA79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1261A48B-EDC8-454E-8589-10530629135D} = {49599BC7-4403-4F95-BCF3-686E3EFA46A8}
+		{CD3D436D-43C4-4FCE-B509-BD03AE49DA79} = {49599BC7-4403-4F95-BCF3-686E3EFA46A8}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1261A48B-EDC8-454E-8589-10530629135D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1261A48B-EDC8-454E-8589-10530629135D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1261A48B-EDC8-454E-8589-10530629135D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1261A48B-EDC8-454E-8589-10530629135D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD3D436D-43C4-4FCE-B509-BD03AE49DA79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD3D436D-43C4-4FCE-B509-BD03AE49DA79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD3D436D-43C4-4FCE-B509-BD03AE49DA79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD3D436D-43C4-4FCE-B509-BD03AE49DA79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
