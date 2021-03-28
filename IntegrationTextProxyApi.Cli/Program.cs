@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using FluentValidation;
 using IntegrationTextProxyApi.Cli.Api;
 using IntegrationTextProxyApi.Cli.Output;
 using IntegrationTextProxyApi.Cli.Services;
@@ -43,6 +44,8 @@ namespace IntegrationTextProxyApi.Cli
 
             services.AddSingleton<IConsoleWriter, ConsoleWriter>();
             services.AddSingleton<ICustomerSearchService, CustomerSearchService>();
+
+            services.AddValidatorsFromAssemblyContaining<Program>();
 
             services.AddRefitClient<ICustomerApi>()
                 .ConfigureHttpClient(client =>

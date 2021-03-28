@@ -7,8 +7,11 @@
 
     <ItemGroup>
       <PackageReference Include="CommandLineParser" Version="2.8.0" />
+      <PackageReference Include="FluentValidation" Version="9.5.3" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.5.3" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
+      <PackageReference Include="OneOf" Version="3.0.178" />
       <PackageReference Include="Refit" Version="6.0.24" />
       <PackageReference Include="Refit.HttpClientFactory" Version="6.0.24" />
     </ItemGroup>

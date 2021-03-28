@@ -4,6 +4,7 @@ using CommandLine;
 using IntegrationTextProxyApi.Cli.Models;
 using IntegrationTextProxyApi.Cli.Output;
 using IntegrationTextProxyApi.Cli.Services;
+using OneOf;
 
 namespace IntegrationTextProxyApi.Cli
 {
@@ -26,14 +27,27 @@ namespace IntegrationTextProxyApi.Cli
                 {
                     var searchRequest = new CustomerSearchRequest(option.Id);
                     var result = await _service.SearchByIdAsync(searchRequest);
-                    var formattedTextResult = JsonSerializer.Serialize(result, new JsonSerializerOptions
-                    {
-                        WriteIndented = true
-                    });
-                    _consoleWriter.WriteLine(formattedTextResult);
+                    HandleSearchResult(result);
+                    
                     // _consoleWriter.WriteLine($"The Customer Id was {option.Id}");
                     //return Task.CompletedTask;
                 });
+        }
+
+        private void HandleSearchResult(OneOf<CustomerResult, CustomerSearchError> result)
+        {
+            result.Switch(sr =>
+            {
+                var formattedTextResult = JsonSerializer.Serialize(sr, new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                });
+                _consoleWriter.WriteLine(formattedTextResult);
+            }, error =>
+            {
+                var formattedErrors = string.Join(", ", error.ErrorMessages);
+                _consoleWriter.WriteLine(formattedErrors);
+            });
         }
     }
 }
