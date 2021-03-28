@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using IntegrationTextProxyApi.Cli.Api;
 using IntegrationTextProxyApi.Cli.Output;
+using IntegrationTextProxyApi.Cli.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
@@ -41,6 +42,7 @@ namespace IntegrationTextProxyApi.Cli
             services.AddSingleton<CustomerSearchApplication>();
 
             services.AddSingleton<IConsoleWriter, ConsoleWriter>();
+            services.AddSingleton<ICustomerSearchService, CustomerSearchService>();
 
             services.AddRefitClient<ICustomerApi>()
                 .ConfigureHttpClient(client =>
