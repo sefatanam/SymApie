@@ -22,19 +22,23 @@ namespace IntegrationTextProxyApi.Cli
                 {
                     client.BaseAddress = new Uri(configuration["CustomerApi:BaseAddress"]);
                 });
-
+         
             var serviceProvider = services.BuildServiceProvider();
 
-            var client = serviceProvider.GetRequiredService<ICustomerApi>();
+            var app = serviceProvider.GetRequiredService<CustomerSearchApplication>();
 
-            var response = await client.SearchByIdAsync(3);
+            await app.RunAsync(args);
 
-            var responseText = JsonSerializer.Serialize(response, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
-            
-            Console.WriteLine(responseText);
+            // var client = serviceProvider.GetRequiredService<ICustomerApi>();
+            //
+            // var response = await client.SearchByIdAsync(3);
+            //
+            // var responseText = JsonSerializer.Serialize(response, new JsonSerializerOptions
+            // {
+            //     WriteIndented = true
+            // });
+            //
+            // Console.WriteLine(responseText);
         }
     }
 }
