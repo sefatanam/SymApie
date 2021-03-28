@@ -33,8 +33,8 @@ namespace ProxyApi.Controllers
             }
           
         }
-        [HttpGet("GetById")]
-        public async Task<IActionResult> GetByIdAsync(int id)
+        [HttpGet("SearchById")]
+        public async Task<IActionResult> SearchByIdAsync(int id)
         {
 
             try
