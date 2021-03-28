@@ -7,7 +7,7 @@ namespace IntegrationTextProxyApi.Cli.Api
     public interface ICustomerApi
     {
 
-        [Get("/customer/SearchById?id={id}")]
+        [Get("/{id}")]
         Task<CustomerSearchResponse> SearchByIdAsync(int id);
     }
 }
